@@ -39,7 +39,6 @@ for (let i = 0; i < lines.length; i++) {
         const copiedLines = [...lines];
         const otherOp = changedOp[op];
         copiedLines[i] = `${otherOp} ${num}`;
-        console.log(`changing op number ${i} from ${op} to ${otherOp}`)
         const prog = terminates(copiedLines);
         if (prog.terminates) {
             console.log(`part 2 loop terminates with acc value ${prog.acc} after changing op num ${i} to ${otherOp}`);
