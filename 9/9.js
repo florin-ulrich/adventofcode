@@ -1,7 +1,6 @@
 const {readLines} = require('../common');
 const lines = readLines().map(Number);
 
-const validNums = [];
 const preambLength = 25;
 const previousNumsConsidered = 25;
 
