@@ -10,12 +10,8 @@ const instructions = {
     "E": (boat, val) => boat.position.add(new Vector(val, 0)),
     "W": (boat, val) => boat.position.add(new Vector(-val, 0)),
     "F": (boat, val) => boat.position.add(boat.direction.multiply(val)),
-    "R": (boat, val, origin) => {
-        boat.direction.rotate(val, origin)
-    },
-    "L": (boat, val, origin) => {
-        boat.direction.rotate(-val, origin)
-    }
+    "R": (boat, val, origin) => boat.direction.rotate(val, origin),
+    "L": (boat, val, origin) => boat.direction.rotate(-val, origin)
 }
 
 class Vector {
@@ -69,8 +65,7 @@ for (let {dir, val} of lines) {
     const instruction = instructions[dir];
     if (dir.match(/[FRL]/)) {
         instruction(boat, val);
-    }
-    else {
+    } else {
         const tmp = boat.position.copy();
         boat.position = boat.direction;
         instruction(boat, val);
@@ -79,4 +74,3 @@ for (let {dir, val} of lines) {
 }
 
 console.log(`part 2 solution: ${Math.abs(boat.position.x) + Math.abs(boat.position.y)}`)
-
